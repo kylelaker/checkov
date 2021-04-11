@@ -55,7 +55,7 @@ class TestTerraformEvaluation(TestCase):
         expected = {"authority":"terraform.io", "scheme" : "https"}
         self.assertEqual(expected, evaluate_terraform(input_str))
 
-        input_str = 'regex("(\\d\\d\\d\\d)-(\\d\\d)-(\\d\\d)", "2019-02-01")'
+        input_str = r'regex("(\d\d\d\d)-(\d\d)-(\d\d)", "2019-02-01")'
         expected = ["2019","02","01"]
         self.assertEqual(expected, evaluate_terraform(input_str))
 

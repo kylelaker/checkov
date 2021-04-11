@@ -2,8 +2,8 @@ from checkov.terraform.checks.resource.base_resource_check import BaseResourceCh
 from checkov.common.models.enums import CheckResult, CheckCategories
 import re
 
-USER_MANAGED_SERVICE_ACCOUNT = re.compile ('.*@.*\.iam\.gserviceaccount\.com$')
-ADMIN_ROLE = re.compile ('.*(.*Admin|.*admin|editor|owner)')
+USER_MANAGED_SERVICE_ACCOUNT = re.compile (r'.*@.*\.iam\.gserviceaccount\.com$')
+ADMIN_ROLE = re.compile (r'.*(.*Admin|.*admin|editor|owner)')
 
 
 class GoogleProjectAdminServiceAccount(BaseResourceCheck):

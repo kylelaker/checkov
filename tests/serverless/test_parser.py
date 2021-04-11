@@ -268,7 +268,7 @@ class TestParser(unittest.TestCase):
     def test_custom_variable_syntax(self):
         case = {
             "provider": {
-                "variableSyntax": "\\${{([ ~:a-zA-Z0-9._@\\'\",\\-\\/\\(\\)]+?)}}"
+                "variableSyntax": r"""\${{([ ~:a-zA-Z0-9._@\\'",\-\/\(\)]+?)}}"""
             },
             "custom": {
                 "consumer": "${{self: custom.source}}",

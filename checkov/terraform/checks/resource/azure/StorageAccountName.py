@@ -2,7 +2,7 @@ from checkov.terraform.checks.resource.base_resource_check import BaseResourceCh
 from checkov.common.models.enums import CheckResult, CheckCategories
 import re
 
-STO_NAME_REGEX = re.compile('^[a-z0-9]{3,24}$')
+STO_NAME_REGEX = re.compile(r'^[a-z0-9]{3,24}$')
 
 
 class StorageAccountName(BaseResourceCheck):

@@ -42,11 +42,12 @@ def evaluate_terraform(input_str, keep_interpolations=True):
 
 
 def _try_evaluate(input_str):
+    escaped_str = str(input_str).encode('unicode-escape').decode('utf-8')
     try:
-        return eval(input_str, {"__builtins__": None}, SAFE_EVAL_DICT) # nosec
+        return eval(escaped_str, {"__builtins__": None}, SAFE_EVAL_DICT) # nosec
     except Exception:
         try:
-            return eval(f'"{input_str}"', {"__builtins__": None}, SAFE_EVAL_DICT) # nosec
+            return eval(f'"{escaped_str}"', {"__builtins__": None}, SAFE_EVAL_DICT) # nosec
         except Exception:
             return input_str
 
